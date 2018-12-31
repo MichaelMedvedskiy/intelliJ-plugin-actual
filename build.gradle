@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'org.jetbrains.intellij' version '0.4.1'
+}
+
+intellij {
+    version '2018.1'
+    plugins 'coverage' //Bundled plugin dependencies
+    pluginName 'plugin_name_goes_here'
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile 'com.taskadapter:trello-java-wrapper:<current-version>'
+}
+
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+
+group 'com.medvedskiy'
+version '1.0-SNAPSHOT'
