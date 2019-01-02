@@ -2,12 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class TrelloPluginForm  {
 
     private TrelloProjectKostil kostil;
-    private JButton submitYourDataButton;
+    //private JButton submitYourDataButton;
     private JTextField trelloKeyField;
     private JTextField trelloAccessTokenField;
     private JTextField listIdField;
@@ -24,17 +27,17 @@ public class TrelloPluginForm  {
         listIdField.setText(kostil.getListId());
 
         //setting listeners for buttons
-        submitYourDataButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                kostil.setTrelloKey(trelloKeyField.getText());
-                kostil.setTrelloAccessToken(trelloAccessTokenField.getText());
-                kostil.setListId(listIdField.getText());
-
-
-            }
-        });
+//        submitYourDataButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//                kostil.setTrelloKey(trelloKeyField.getText());
+//                kostil.setTrelloAccessToken(trelloAccessTokenField.getText());
+//                kostil.setListId(listIdField.getText());
+//
+//
+//            }
+//        });
 
         helpButton.addActionListener(new ActionListener() {
             @Override
@@ -52,6 +55,25 @@ public class TrelloPluginForm  {
             }
         });
 
+        trelloAccessTokenField.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                kostil.setTrelloAccessToken(trelloAccessTokenField.getText());
+            }
+        });
+        trelloKeyField.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                kostil.setTrelloKey(trelloKeyField.getText());
+            }
+        });
+
+        listIdField.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                kostil.setListId(listIdField.getText());
+            }
+        });
     }
 
     public static void main(String[] args) {

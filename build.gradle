@@ -28,7 +28,11 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation 'com.taskadapter:trello-java-wrapper:0.8'
+
+    implementation('com.taskadapter:trello-java-wrapper:0.8'){
+        exclude group: 'org.slf4j'
+        exclude group: 'org.apache.httpcomponents'
+    }
 }
 
 

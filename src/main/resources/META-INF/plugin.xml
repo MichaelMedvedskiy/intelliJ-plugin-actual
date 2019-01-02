@@ -10,9 +10,9 @@
     </extensions>
 
     <actions>
-        <group id="MyPlugin.SampleMenu" text="Greeting" description="Greeting menu">
+        <group id="MyPlugin.SampleMenu" text="TrelloCard" description="Greeting menu">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="Myplugin.Textboxes" class="HelloAction" text="Hello" description="Says hello"/>
+            <action id="Myplugin.Textboxes" class="HelloAction" text="Add card to list" description="Says hello"/>
             <action class="SetAuthDataAndListId" text="Set auth data and list ID"
                     description="important data to get into the correct board and list" id="Myplugin.Setters" />
         </group>
